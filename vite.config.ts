@@ -16,5 +16,4 @@ export default defineConfig({
       reporter: ['text', 'json', 'html'],
     },
   },
-  base: '/project1',
 });
