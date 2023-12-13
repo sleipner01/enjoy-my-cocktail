@@ -3,6 +3,7 @@
   background-color: #f08080;
   display: flex;
   justify-content: space-between;
+  z-index: 10;
 }
 
 .navbar .links {
