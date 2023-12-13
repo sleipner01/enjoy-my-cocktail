@@ -9,6 +9,7 @@
 .navbar .links {
   display: flex;
   justify-content: flex-end;
+  align-items: baseline;
 }
 
 .navbar .link {
@@ -17,11 +18,15 @@
   padding: 1.25rem;
   font-family: Raleway, sans-serif;
   font-weight: bold;
-  color: #fbc4ab;
+  color: #fff;
 }
 
 .navbar .link:hover {
-  color: #000;
+  color: #fbc4ab;
+}
+
+.navbar .link.active {
+  border-bottom: solid 5px #fbc4ab;
 }
 
 .navbar .logo {
@@ -43,17 +48,19 @@
   display: none;
 }
 
+@media screen and (width < 595px) {
+  .navbar .logo {
+    display: none;
+  }
+  .navbar .logoIcon {
+    display: block;
+  }
+}
+
 @media screen and (width <= 550px) {
   .navbar {
     position: fixed;
     top: 0;
-  }
-
-  .navbar .logo {
-    display: none;
-  }
-
-  .navbar .logoIcon {
-    display: block;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
   }
 }
