@@ -46,7 +46,8 @@ exports[`Navbar > Should match snapshot 1`] = `
       class="links"
     >
       <a
-        class="link"
+        aria-current="page"
+        class="link active"
         href="/"
       >
         Home
@@ -62,6 +63,19 @@ exports[`Navbar > Should match snapshot 1`] = `
         href="/favorites/"
       >
         Favorites
+      </a>
+      <a
+        class="link"
+        href="https://github.com/sleipner01/enjoy-my-cocktail"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="github"
+          class="githubIcon"
+          src="/src/assets/github.svg"
+          width="22"
+        />
       </a>
     </div>
   </nav>

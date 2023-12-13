@@ -1,7 +1,9 @@
 import './Navbar.css';
 
 import { FaCocktail } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+
+import GithubIcon from '../../assets/github.svg';
 
 export const Navbar = () => {
   return (
@@ -13,15 +15,18 @@ export const Navbar = () => {
         <FaCocktail />
       </Link>
       <div className='links'>
-        <Link to={'/'} className='link'>
+        <NavLink to={'/'} className='link'>
           Home
-        </Link>
-        <Link to={'/drinks/'} className='link'>
+        </NavLink>
+        <NavLink to={'/drinks/'} className='link'>
           Drinks
-        </Link>
-        <Link to={'/favorites/'} className='link'>
+        </NavLink>
+        <NavLink to={'/favorites/'} className='link'>
           Favorites
-        </Link>
+        </NavLink>
+        <a className='link' target='_blank' href='https://github.com/sleipner01/enjoy-my-cocktail' rel='noreferrer'>
+          <img src={GithubIcon} alt='github' className='githubIcon' width={22} />
+        </a>
       </div>
     </nav>
   );
