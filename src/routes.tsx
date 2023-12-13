@@ -10,8 +10,8 @@ import { NotFound } from './pages/NotFound.tsx';
 export const Router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path='/' element={<PageLayout />}>
-        <Route path='/' element={<Home />} />
+      <Route path='' element={<PageLayout />}>
+        <Route path='' element={<Home />} />
         <Route path='/drinks' element={<Search />} />
         <Route path='/favorites' element={<Favorites />} />
         <Route path='/drink/:id' element={<Drink />} />
