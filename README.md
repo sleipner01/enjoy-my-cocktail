@@ -6,6 +6,8 @@ This is an application to browse a wide variety of drinks, and maybe get some in
 
 <img src="./docs/imgs/EMCT-main.jpg">
 
+> Visit the site at [https://cocktail.magnusbyrkjeland.no](https://cocktail.magnusbyrkjeland.no)! 🍸
+
 ## Contributors
 
 | <div style="width:180px">Full Name</div> | Email                 |
