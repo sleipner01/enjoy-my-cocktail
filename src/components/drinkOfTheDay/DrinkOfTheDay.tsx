@@ -79,7 +79,7 @@ export const DrinkOfTheDay: FC = () => {
             </div>
           </div>
           <div className='right'>
-            <img src={drink.strDrinkThumb + '/preview'} alt={drink.strDrink + ' image'} />
+            <img src={drink.strDrinkThumb + '/preview'} alt={drink.strDrink} />
           </div>
         </Link>
       </div>

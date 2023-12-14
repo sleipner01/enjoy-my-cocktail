@@ -2,9 +2,39 @@
 
 exports[`DrinkCard > Should match snapshot 1`] = `
 <div>
-  <div
+  <article
     class="drink-container"
+    itemscope=""
+    itemtype="https://schema.org/Recipe"
   >
+    <meta
+      content="Super Drink"
+      itemprop="name"
+    />
+    <meta
+      content="https://localhost:3000/drink/11118.jpg"
+      itemprop="image"
+    />
+    <meta
+      content="https://localhost:3000/drink/11118.jpg"
+      itemprop="thumbnailUrl"
+    />
+    <meta
+      content="Category"
+      itemprop="recipeCategory"
+    />
+    <meta
+      content="Instructions for drink"
+      itemprop="recipeInstructions"
+    />
+    <meta
+      content="Ingredient 1"
+      itemprop="recipeIngredient"
+    />
+    <meta
+      content="Ingredient 2"
+      itemprop="recipeIngredient"
+    />
     <div
       class="drink-header"
     >
@@ -119,6 +149,6 @@ exports[`DrinkCard > Should match snapshot 1`] = `
         Instructions for drink
       </p>
     </div>
-  </div>
+  </article>
 </div>
 `;
