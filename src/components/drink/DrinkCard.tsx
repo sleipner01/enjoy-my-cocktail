@@ -24,7 +24,16 @@ export const DrinkCard: FC = () => {
   if (!data) return <div className='drink-container'>No drink was found...</div>;
 
   return (
-    <div className='drink-container'>
+    <article itemScope itemType='https://schema.org/Recipe' className='drink-container'>
+      <meta itemProp='name' content={data.strDrink} />
+      <meta itemProp='image' content={data.strDrinkThumb} />
+      <meta itemProp='thumbnailUrl' content={data.strDrinkThumb} />
+      <meta itemProp='recipeCategory' content={data.strCategory} />
+      <meta itemProp='recipeInstructions' content={data.strInstructions} />
+      {data.ingredients.map((ingredient, index) => (
+        <meta key={index} itemProp='recipeIngredient' content={ingredient.ingredient} />
+      ))}
+
       <div className='drink-header'>
         <div className='return-button-container'>
           <button onClick={goBack} className='return-button'>
@@ -59,6 +68,6 @@ export const DrinkCard: FC = () => {
         <h3 className='section-header'>Instructions</h3>
         <p>{data.strInstructions}</p>
       </div>
-    </div>
+    </article>
   );
 };

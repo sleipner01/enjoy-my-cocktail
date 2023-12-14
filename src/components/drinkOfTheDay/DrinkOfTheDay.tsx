@@ -5,7 +5,7 @@ import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { DrinkOfTheDay as DrinkOfTheDayType } from '../../types';
-import { getDrinkOfTheDay } from '../../utils/persistency';
+import { clearLocalStorage, getDrinkOfTheDay } from '../../utils/persistency';
 import { fetchDrinkOfTheDay } from '../../utils/queries';
 import { Spinner } from '../loading/Loading';
 
@@ -56,11 +56,17 @@ export const DrinkOfTheDay: FC = () => {
       return <p>Something went wrong fetching the drink of the day</p>;
     }
 
-    return <p>There is something wrong</p>;
+    clearLocalStorage();
+    return <p>There is something wrong. Try reloading...</p>;
   }
 
   return (
-    <div className='drink-of-the-day-card'>
+    <article itemScope itemType='https://schema.org/Recipe' className='drink-of-the-day-card'>
+      <meta itemProp='name' content={drink.strDrink} />
+      <meta itemProp='image' content={drink.strDrinkThumb} />
+      <meta itemProp='thumbnailUrl' content={drink.strDrinkThumb} />
+      <meta itemProp='recipeCategory' content={drink.strCategory} />
+
       <div className='drink-of-the-day-card-container'>
         <Link to={`/drink/${drink.drinkId}`} className='link-wrapper'>
           <h2>Drink of the day!</h2>
@@ -77,6 +83,6 @@ export const DrinkOfTheDay: FC = () => {
           </div>
         </Link>
       </div>
-    </div>
+    </article>
   );
 };

@@ -57,3 +57,7 @@ export const setSessionFilter = (filter: CategoryType) => {
 export const getSessionFilter = () => {
   return sessionStorage.getItem('filter') as CategoryType;
 };
+
+export const clearLocalStorage = () => {
+  localStorage.clear();
+};

@@ -2,9 +2,27 @@
 
 exports[`DrinkOfTheDay > Should match snapshot 1`] = `
 <DocumentFragment>
-  <div
+  <article
     class="drink-of-the-day-card"
+    itemscope=""
+    itemtype="https://schema.org/Recipe"
   >
+    <meta
+      content="Random Drink"
+      itemprop="name"
+    />
+    <meta
+      content="https://localhost:3000/drink/11118.jpg"
+      itemprop="image"
+    />
+    <meta
+      content="https://localhost:3000/drink/11118.jpg"
+      itemprop="thumbnailUrl"
+    />
+    <meta
+      content="Category"
+      itemprop="recipeCategory"
+    />
     <div
       class="drink-of-the-day-card-container"
     >
@@ -51,6 +69,6 @@ exports[`DrinkOfTheDay > Should match snapshot 1`] = `
         </div>
       </a>
     </div>
-  </div>
+  </article>
 </DocumentFragment>
 `;
