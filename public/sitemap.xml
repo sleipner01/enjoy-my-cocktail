@@ -2,13 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://cocktail.magnusbyrkjeland.no/</loc>
+        <lastmod>2023-12-14</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.00</priority>
     </url>
     <!-- Redirect links -->
     <url>
         <loc>https://cocktail.magnusbyrkjeland.no/?/drinks</loc>
+        <lastmod>2023-12-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
         <loc>https://cocktail.magnusbyrkjeland.no/?/favorites</loc>
+        <lastmod>2023-12-14</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://cocktail.magnusbyrkjeland.no/?/drink/13282</loc>
+        <lastmod>2023-12-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
     </url>
     <!-- Can be uncommented if Pages start using browser history API -->
     <!-- <url>
