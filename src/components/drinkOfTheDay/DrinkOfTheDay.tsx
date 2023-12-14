@@ -61,7 +61,12 @@ export const DrinkOfTheDay: FC = () => {
   }
 
   return (
-    <div className='drink-of-the-day-card'>
+    <article itemScope itemType='https://schema.org/Recipe' className='drink-of-the-day-card'>
+      <meta itemProp='name' content={drink.strDrink} />
+      <meta itemProp='image' content={drink.strDrinkThumb} />
+      <meta itemProp='thumbnailUrl' content={drink.strDrinkThumb} />
+      <meta itemProp='recipeCategory' content={drink.strCategory} />
+
       <div className='drink-of-the-day-card-container'>
         <Link to={`/drink/${drink.drinkId}`} className='link-wrapper'>
           <h2>Drink of the day!</h2>
@@ -74,10 +79,10 @@ export const DrinkOfTheDay: FC = () => {
             </div>
           </div>
           <div className='right'>
-            <img src={drink.strDrinkThumb + '/preview'} alt={drink.strDrink} />
+            <img src={drink.strDrinkThumb + '/preview'} alt={drink.strDrink + ' image'} />
           </div>
         </Link>
       </div>
-    </div>
+    </article>
   );
 };
