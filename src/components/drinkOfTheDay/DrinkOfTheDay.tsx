@@ -5,7 +5,7 @@ import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { DrinkOfTheDay as DrinkOfTheDayType } from '../../types';
-import { getDrinkOfTheDay } from '../../utils/persistency';
+import { clearLocalStorage, getDrinkOfTheDay } from '../../utils/persistency';
 import { fetchDrinkOfTheDay } from '../../utils/queries';
 import { Spinner } from '../loading/Loading';
 
@@ -56,7 +56,8 @@ export const DrinkOfTheDay: FC = () => {
       return <p>Something went wrong fetching the drink of the day</p>;
     }
 
-    return <p>There is something wrong</p>;
+    clearLocalStorage();
+    return <p>There is something wrong. Try reloading...</p>;
   }
 
   return (
