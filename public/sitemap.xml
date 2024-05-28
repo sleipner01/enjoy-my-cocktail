@@ -8,28 +8,21 @@
     </url>
     <!-- Redirect links -->
     <url>
-        <loc>https://cocktail.magnusbyrkjeland.no/?/drinks</loc>
+        <loc>https://cocktail.magnusbyrkjeland.no/drinks</loc>
         <lastmod>2023-12-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://cocktail.magnusbyrkjeland.no/?/favorites</loc>
+        <loc>https://cocktail.magnusbyrkjeland.no/favorites</loc>
         <lastmod>2023-12-14</lastmod>
         <changefreq>never</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://cocktail.magnusbyrkjeland.no/?/drink/13282</loc>
+        <loc>https://cocktail.magnusbyrkjeland.no/drink/13282</loc>
         <lastmod>2023-12-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
-    <!-- Can be uncommented if Pages start using browser history API -->
-    <!-- <url>
-        <loc>https://cocktail.magnusbyrkjeland.no/drinks</loc>
-    </url>
-    <url>
-        <loc>https://cocktail.magnusbyrkjeland.no/favorites</loc>
-    </url> -->
 </urlset>
