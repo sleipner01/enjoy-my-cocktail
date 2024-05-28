@@ -1,6 +1,7 @@
 import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persister';
 import { QueryClient } from '@tanstack/react-query';
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
+import { inject } from '@vercel/analytics';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
@@ -18,6 +19,8 @@ const persister = createSyncStoragePersister({
 });
 
 import { Router } from './routes';
+
+inject();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

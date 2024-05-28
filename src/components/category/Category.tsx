@@ -10,7 +10,7 @@ interface CategoryProps {
 }
 
 export const Category: FC<CategoryProps> = ({ category }) => (
-  <Link to={`/drinks`} state={category} className='category'>
+  <Link to={`/drinks/`} state={category} className='category'>
     <h3>{category}</h3>
   </Link>
 );

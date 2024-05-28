@@ -5,7 +5,7 @@ import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { DrinkOfTheDay as DrinkOfTheDayType } from '../../types';
-import { clearLocalStorage, getDrinkOfTheDay } from '../../utils/persistency';
+import { getDrinkOfTheDay } from '../../utils/persistency';
 import { fetchDrinkOfTheDay } from '../../utils/queries';
 import { Spinner } from '../loading/Loading';
 
@@ -49,15 +49,26 @@ export const DrinkOfTheDay: FC = () => {
     }
 
     if (!isSuccess) {
-      return <p>Something went wrong fetching the drink of the day</p>;
+      return (
+        <div className='drink-of-the-day-card'>
+          <p>Something went wrong fetching the drink of the day</p>
+        </div>
+      );
     }
 
     if (!data) {
-      return <p>Something went wrong fetching the drink of the day</p>;
+      return (
+        <div className='drink-of-the-day-card'>
+          <p>Something went wrong fetching the drink of the day</p>
+        </div>
+      );
     }
 
-    clearLocalStorage();
-    return <p>There is something wrong. Try reloading...</p>;
+    return (
+      <div className='drink-of-the-day-card'>
+        <p>There is something wrong. Try reloading...</p>
+      </div>
+    );
   }
 
   return (
