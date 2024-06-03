@@ -10,12 +10,12 @@ This is an application to browse a wide variety of drinks, and maybe get some in
 
 ## Contributors
 
-| <div style="width:180px">Full Name</div> | Email                 |
-| ---------------------------------------- | --------------------- |
-| Magnus Tomter Ouren                      | magnutou@stud.ntnu.no |
-| Ole Remi Dahl                            | olerd@stud.ntnu.no    |
-| Jakob Relling                            | jakobere@stud.ntnu.no |
-| Magnus Byrkjeland                        | magnueb@stud.ntnu.no  |
+| <div style="width:180px">Full Name</div>              | Email                 |
+| ----------------------------------------------------- | --------------------- |
+| [Magnus Tomter Ouren](https://github.com/magnusouren) | magnutou@stud.ntnu.no |
+| [Ole Remi Dahl](https://github.com/oleremidahl)       | olerd@stud.ntnu.no    |
+| [Jakob Relling](https://github.com/Jakob-ere)         | jakobere@stud.ntnu.no |
+| [Magnus Byrkjeland](https://github.com/sleipner01)    | magnueb@stud.ntnu.no  |
 
 ## API
 
