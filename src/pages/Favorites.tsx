@@ -1,18 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { FavoriteList } from '../components/favoriteList/FavoriteList';
 import { getFavorites } from '../utils/persistency';
 
 export const Favorites = () => {
-  const [favorites, setFavorites] = useState<string[]>([]);
+  const [favorites, setFavorites] = useState<string[]>(getFavorites);
 
   const removeFavoriteFromState = (id: string) => {
     setFavorites((prevFavorites) => prevFavorites.filter((favId) => favId !== id));
   };
-
-  useEffect(() => {
-    setFavorites(getFavorites());
-  }, []);
 
   return (
     <>
