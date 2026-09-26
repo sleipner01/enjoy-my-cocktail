@@ -1,4 +1,4 @@
-import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
+import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router';
 
 import { PageLayout } from './layouts/PageLayout.tsx';
 import { Drink } from './pages/Drink.tsx';

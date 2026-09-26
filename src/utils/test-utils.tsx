@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render } from '@testing-library/react';
 import { ReactElement } from 'react';
-import { BrowserRouter, MemoryRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, MemoryRouter, Route, Routes } from 'react-router';
 
 import { DrinkCard } from '../components/drink/DrinkCard';
 

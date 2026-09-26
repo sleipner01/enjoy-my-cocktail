@@ -1,7 +1,7 @@
 import './SimpleDrink.css';
 
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 import { SimpleDrinkType } from '../../types';
 

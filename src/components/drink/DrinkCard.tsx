@@ -2,7 +2,7 @@ import './DrinkCard.css';
 
 import { useQuery } from '@tanstack/react-query';
 import { FC } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router';
 
 import { Drink } from '../../types';
 import { fetchDrinkById } from '../../utils/queries';

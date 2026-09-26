@@ -7,6 +7,7 @@ exports[`DrinkList > Should match snapshot 1`] = `
   >
     <a
       class="simple-drink"
+      data-discover="true"
       href="/drink/11007"
     >
       <h3>
@@ -20,6 +21,7 @@ exports[`DrinkList > Should match snapshot 1`] = `
     </a>
     <a
       class="simple-drink"
+      data-discover="true"
       href="/drink/178332"
     >
       <h3>
@@ -33,6 +35,7 @@ exports[`DrinkList > Should match snapshot 1`] = `
     </a>
     <a
       class="simple-drink"
+      data-discover="true"
       href="/drink/17216"
     >
       <h3>

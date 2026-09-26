@@ -2,7 +2,7 @@ import './DrinkOfTheDay.css';
 
 import { useQuery } from '@tanstack/react-query';
 import { FC, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 import { DrinkOfTheDay as DrinkOfTheDayType } from '../../types';
 import { getDrinkOfTheDay } from '../../utils/persistency';
