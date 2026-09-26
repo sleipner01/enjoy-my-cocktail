@@ -1,10 +1,9 @@
 /// <reference types="vitest/config" />
-/// <reference types="vite/client" />
 
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 
-// https://vitejs.dev/config/
+// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
   test: {
@@ -13,7 +12,7 @@ export default defineConfig({
     environment: 'jsdom',
     coverage: {
       provider: 'v8',
-      reporter: ['text', 'json', 'html'],
+      reporter: ['text', 'html'],
     },
   },
 });
