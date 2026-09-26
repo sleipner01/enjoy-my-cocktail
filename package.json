@@ -22,7 +22,6 @@
     "@tanstack/react-query": "^5.104.0",
     "@tanstack/react-query-persist-client": "^5.104.0",
     "@vercel/analytics": "^2.0.1",
-    "axios": "^1.20.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "react-icons": "^5.7.0",

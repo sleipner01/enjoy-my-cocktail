@@ -1,17 +1,35 @@
-import axios, { isCancel } from 'axios';
-
-import type { Drink, DrinkOfTheDay, Ingredient } from '../types';
+import type { Alcoholic, CategoryType, Drink, DrinkOfTheDay, Ingredient, SimpleDrinkType } from '../types';
+import { fetchJson } from './fetchJson';
 import { setDrinkOfTheDay } from './persistency';
+
+const API_URL = 'https://www.thecocktaildb.com/api/json/v1/1';
+
+// The API returns drinks as loosely typed records with numbered ingredient fields
+type ApiDrink = Record<string, string> & { strAlcoholic: Alcoholic };
+type ApiDrinksResponse = { drinks: ApiDrink[] };
+
+export const fetchCategories = async () => {
+  const { drinks } = await fetchJson<{ drinks: { strCategory: CategoryType }[] }>(`${API_URL}/list.php?c=list`);
+  return drinks.map((drink) => drink.strCategory);
+};
+
+export const fetchDrinksByCategory = async (category: CategoryType | null) => {
+  const { drinks } = await fetchJson<ApiDrinksResponse>(`${API_URL}/filter.php?c=${category || 'Beer'}`);
+  return drinks.map((drink): SimpleDrinkType => ({
+    strDrink: drink.strDrink,
+    strDrinkThumb: drink.strDrinkThumb,
+    idDrink: drink.idDrink,
+  }));
+};
 
 export const fetchDrinkById = async (id?: string) => {
   if (!id) {
     return null;
   }
-  const response = await axios
-    .get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
+  const response = await fetchJson<ApiDrinksResponse>(`${API_URL}/lookup.php?i=${id}`)
     .then((response) => {
       // Extract drink data
-      const drinkData = response.data.drinks[0];
+      const drinkData = response.drinks[0];
       const ingredients: Array<Ingredient> = [];
       const drink: Drink = {
         idDrink: drinkData.idDrink,
@@ -39,10 +57,6 @@ export const fetchDrinkById = async (id?: string) => {
       return drink;
     })
     .catch((error) => {
-      if (isCancel(error)) {
-        console.log('Request cancelled', error.message);
-        return null;
-      }
       if (error instanceof TypeError) {
         return null;
       } else {
@@ -54,10 +68,9 @@ export const fetchDrinkById = async (id?: string) => {
 };
 
 export const fetchDrinkOfTheDay = async (currentDate: string) => {
-  return axios
-    .get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+  return fetchJson<ApiDrinksResponse>(`${API_URL}/random.php`)
     .then((response) => {
-      const randomDrink = response.data.drinks[0];
+      const randomDrink = response.drinks[0];
 
       const drink: DrinkOfTheDay = {
         drinkId: randomDrink.idDrink,

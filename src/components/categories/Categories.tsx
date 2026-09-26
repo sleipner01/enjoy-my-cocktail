@@ -1,20 +1,17 @@
 import './Categories.css';
 
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
 import type { FC } from 'react';
 
 import type { CategoryType } from '../../types';
+import { fetchCategories } from '../../utils/queries';
 import { Category } from '../category/Category';
 import { Spinner } from '../loading/Loading';
 
 export const Categories: FC = () => {
   const { data, isPending, isSuccess } = useQuery<CategoryType[]>({
     queryKey: ['categories'],
-    queryFn: () =>
-      axios
-        .get('https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list')
-        .then((res) => res.data.drinks.map((drink: { strCategory: string }) => drink.strCategory)),
+    queryFn: fetchCategories,
   });
 
   if (isPending) return <Spinner />;
