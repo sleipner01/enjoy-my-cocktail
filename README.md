@@ -35,85 +35,71 @@ The project uses the following technologies:
 
 ## Environment
 
-The application is built on `node v20.5.0` and `npm v9.8.1`. We cannot guarantee that other versions of node will run the project without complications.
+The project uses [Bun](https://bun.sh/) as package manager and script runner. Install it with:
 
-> <i>Note: The project cannot be run with node 20.6.0.</i>
-
-To set correct node version with nvm, run:
-
-```cli
-nvm install 20.5.0
-```
-
-```cli
-nvm use 20.5.0
-```
-
-To set correct npm version, run:
-
-```cli
-npm install -g npm@9.8.1
+```bash
+curl -fsSL https://bun.sh/install | bash
 ```
 
 ## Start development
 
 To start the project locally, run:
 
-```cli
-npm install
+```bash
+bun install
 ```
 
 After successful install, run:
 
-```cli
-npm run dev
+```bash
+bun run dev
 ```
 
 The project will be executed locally and be hosted through a local port. Look to the terminal to find the correct URL.
 
 <i>More information about the scripts can be found below.</i>
 
-## Available NPM Scripts
+## Available Scripts
 
-This section provides an overview of the available npm scripts for this project. These scripts help you manage development, testing, building, and other maintenance tasks for the project.
+This section provides an overview of the available scripts for this project. These scripts help you manage development, testing, building, and other maintenance tasks for the project.
 
 ### Setup
 
 | <div style="width:150px">Command</div> | Description                                                                                       |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `npm install`                          | Installs all dependencies to run the project locally.                                             |
-| `npm run dev`                          | Starts Vite locally in development mode. Any code changes will trigger automatic browser updates. |
-| `npm start`                            | This script also starts Vite development mode and behaves identically to `npm run dev`.           |
+| `bun install`                          | Installs all dependencies to run the project locally.                                             |
+| `bun run dev`                          | Starts Vite locally in development mode. Any code changes will trigger automatic browser updates. |
+| `bun start`                            | This script also starts Vite development mode and behaves identically to `bun run dev`.           |
 
 ### Testing
 
 | <div style="width:150px">Command</div> | Description                                                                                                 |
 | -------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `npm test`                             | This script runs tests using Vitest. It will execute all tests in the project.                              |
-| `npm run coverage`                     | Runs the unit-tests and generates a code coverage report. It will be located [here](./coverage/index.html). |
+| `bun run test`                         | This script runs tests using Vitest. It will execute all tests in the project.                              |
+| `bun run coverage`                     | Runs the unit-tests and generates a code coverage report. It will be located [here](./coverage/index.html). |
 
 ### Code Quality
 
 | <div style="width:150px">Command</div> | Description                                                                                                                |
 | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `npm run lint`                         | Runs ESLint to check for style errors and code issues. It will also report any unused ESLint-disable directives.           |
-| `npm run lint:fix`                     | Runs ESLint with the --fix flag to automatically fix eligable formatting issues and style errors in project files.         |
-| `npm run lint:css`                     | Runs Stylelint to check CSS files in the project for style errors and code issues.                                         |
-| `npm run format`                       | Runs Prettier to format spesified files in the project according to the configuration defined in the .prettierrc.cjs file. |
+| `bun run lint`                         | Runs ESLint to check for style errors and code issues. It will also report any unused ESLint-disable directives.           |
+| `bun run lint:fix`                     | Runs ESLint with the --fix flag to automatically fix eligable formatting issues and style errors in project files.         |
+| `bun run lint:css`                     | Runs Stylelint to check CSS files in the project for style errors and code issues.                                         |
+| `bun run format`                       | Runs Prettier to format spesified files in the project according to the configuration defined in the .prettierrc.cjs file. |
 
 ### Production
 
 | <div style="width:150px">Command</div> | Description                                                                                 |
 | -------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `npm run build`                        | Builds the project with Vite. More information below.                                       |
-| `npm run preview`                      | Runs the built project locally. `npm run build` must have been run for this script to work. |
+| `bun run build`                        | Builds the project with Vite. More information below.                                       |
+| `bun run preview`                      | Runs the built project locally. `bun run build` must have been run for this script to work. |
 
 ## Prepare for production
 
 Before production, the project needs to be compiled and built. This can be done by running the following script:
 
-```
-npm run build
+```bash
+bun run build
 ```
 
 It builds the project for production using Vite. It will perform the following steps:
@@ -123,8 +109,8 @@ It builds the project for production using Vite. It will perform the following s
 - Run TypeScript compilation.
 - Run Vite bundling.
 
-```cli
-npm run preview
+```bash
+bun run preview
 ```
 
 This script starts Vite in preview mode, allowing you to preview the production build locally before deployment.

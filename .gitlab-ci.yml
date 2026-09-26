@@ -1,4 +1,4 @@
-image: node:20
+image: oven/bun:1
 
 stages:
   - setup
@@ -7,10 +7,10 @@ stages:
   - lint-css
   - build
 
-node-setup:
+bun-setup:
   stage: setup
   script:
-    - npm install
+    - bun install --frozen-lockfile
   artifacts:
     paths:
       - node_modules
@@ -19,7 +19,7 @@ unit-test-job:
   stage: test
   script:
     - echo "Running unit tests..."
-    - npm run coverage
+    - bun run coverage
   coverage: '/All files[^|]*\|[^|]*\s+([\d\.]+)/'
   artifacts:
     when: always
@@ -32,19 +32,19 @@ lint-test-job 1/2:
   stage: lint
   script:
     - echo "Linting code..."
-    - npm run lint
+    - bun run lint
     - echo "No lint issues found."
 
 lint-test-job 2/2:
   stage: lint-css
   script:
     - echo "Linting code..."
-    - npm run lint:css
+    - bun run lint:css
     - echo "No lint issues found."
 
 build-job:
   stage: build
   script:
     - echo "Compiling the code..."
-    - npm run build:ci
+    - bun run build:ci
     - echo "Compile complete."
