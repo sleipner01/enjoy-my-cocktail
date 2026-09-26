@@ -9,7 +9,7 @@ export default defineConfig({
   test: {
     setupFiles: './setups.ts',
     globals: true,
-    environment: 'jsdom',
+    environment: 'happy-dom',
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html'],
