@@ -120,6 +120,10 @@ bun run preview
 
 The live site is deployed on [Vercel](https://vercel.com/), configured in [`vercel.json`](./vercel.json).
 
+## Continuous integration
+
+[GitHub Actions](./.github/workflows/ci.yml) runs Oxlint, Stylelint, the type check and the tests with coverage on every pull request and every push to `main`. The build is left to Vercel.
+
 ## Editor setup
 
 The repository includes VS Code settings that format with Prettier on save and apply Oxlint fixes. Install the recommended extensions when VS Code prompts for them.
