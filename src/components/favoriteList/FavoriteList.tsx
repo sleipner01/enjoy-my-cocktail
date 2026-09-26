@@ -1,9 +1,9 @@
 import './FavoriteList.css';
 
 import { useQueries } from '@tanstack/react-query';
-import { FC } from 'react';
+import type { FC } from 'react';
 
-import { Drink } from '../../types';
+import type { Drink } from '../../types';
 import { fetchDrinkById } from '../../utils/queries';
 import { FavoriteCard } from '../favoriteCard/FavoriteCard';
 import { Spinner } from '../loading/Loading';

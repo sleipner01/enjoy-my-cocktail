@@ -1,6 +1,6 @@
 import { fireEvent, screen } from '@testing-library/react';
 
-import { SimpleDrinkType } from '../../../types';
+import type { SimpleDrinkType } from '../../../types';
 import { renderWithRouterAndQueryClient } from '../../../utils/test-utils';
 import { SimpleDrink } from '../SimpleDrink';
 

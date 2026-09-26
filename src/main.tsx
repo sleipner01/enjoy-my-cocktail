@@ -6,6 +6,8 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router';
 
+import { Router } from './routes';
+
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -17,8 +19,6 @@ export const queryClient = new QueryClient({
 const persister = createSyncStoragePersister({
   storage: window.localStorage,
 });
-
-import { Router } from './routes';
 
 inject();
 

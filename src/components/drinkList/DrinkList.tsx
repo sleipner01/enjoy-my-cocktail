@@ -1,8 +1,8 @@
 import './DrinkList.css';
 
-import { FC } from 'react';
+import type { FC } from 'react';
 
-import { SimpleDrinkType } from '../../types';
+import type { SimpleDrinkType } from '../../types';
 import { SimpleDrink } from '../simpleDrink/SimpleDrink';
 
 interface DrinkListProps {

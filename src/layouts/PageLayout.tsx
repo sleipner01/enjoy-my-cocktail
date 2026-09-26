@@ -1,6 +1,6 @@
 import './PageLayout.css';
 
-import { type FC } from 'react';
+import type { FC } from 'react';
 import { Outlet } from 'react-router';
 
 import { Navbar } from '../components/navbar/Navbar';

@@ -1,9 +1,9 @@
 import './SimpleDrink.css';
 
-import { FC } from 'react';
+import type { FC } from 'react';
 import { Link } from 'react-router';
 
-import { SimpleDrinkType } from '../../types';
+import type { SimpleDrinkType } from '../../types';
 
 interface SimpleDrinkProps {
   drink: SimpleDrinkType;

@@ -1,6 +1,6 @@
 import './FavoriteButton.css';
 
-import { FC, useState } from 'react';
+import { useState, type FC } from 'react';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 
 import { isFavorite, toggleFavorite } from '../../utils/persistency';
