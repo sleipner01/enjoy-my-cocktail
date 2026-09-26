@@ -14,7 +14,7 @@ interface FavoriteListProps {
 }
 
 export const FavoriteList: FC<FavoriteListProps> = ({ favorites, onRemoveFavorite }) => {
-  const userQueries = useQueries<Drink[]>({
+  const userQueries = useQueries({
     queries:
       favorites?.map((favorite) => {
         return {
@@ -26,11 +26,11 @@ export const FavoriteList: FC<FavoriteListProps> = ({ favorites, onRemoveFavorit
 
   const data: Drink[] = userQueries.map((query) => query.data as Drink);
 
-  const isLoading: boolean = userQueries.some((query) => query.isLoading);
+  const isPending: boolean = userQueries.some((query) => query.isPending);
   const isError: boolean = userQueries.some((query) => query.isError);
   const isSuccess: boolean = userQueries.some((query) => query.isSuccess);
 
-  if (isLoading) return <Spinner />;
+  if (isPending) return <Spinner />;
   if (isError) return <div>Something went wrong...</div>;
   if (data.length == 0) return <div>No favorites found...</div>;
 
