@@ -10,6 +10,7 @@ exports[`Categories > Should match snapshot 1`] = `
   >
     <a
       class="category"
+      data-discover="true"
       href="/drinks"
     >
       <h3>
@@ -18,6 +19,7 @@ exports[`Categories > Should match snapshot 1`] = `
     </a>
     <a
       class="category"
+      data-discover="true"
       href="/drinks"
     >
       <h3>
@@ -26,6 +28,7 @@ exports[`Categories > Should match snapshot 1`] = `
     </a>
     <a
       class="category"
+      data-discover="true"
       href="/drinks"
     >
       <h3>

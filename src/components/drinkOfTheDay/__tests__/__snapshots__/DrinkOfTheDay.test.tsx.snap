@@ -28,6 +28,7 @@ exports[`DrinkOfTheDay > Should match snapshot 1`] = `
     >
       <a
         class="link-wrapper"
+        data-discover="true"
         href="/drink/9118"
       >
         <h2>

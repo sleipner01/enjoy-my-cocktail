@@ -9,6 +9,7 @@ exports[`FavoriteCard > should render correctly 1`] = `
     />
     <div>
       <a
+        data-discover="true"
         href="/drink/11118"
       >
         <h3>

@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { FC, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 
 import { DrinkList } from '../components/drinkList/DrinkList';
 import { Filter } from '../components/filter/Filter';

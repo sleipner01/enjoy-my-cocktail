@@ -4,6 +4,7 @@ exports[`Category > Should match snapshot 1`] = `
 <div>
   <a
     class="category"
+    data-discover="true"
     href="/drinks"
   >
     <h3>

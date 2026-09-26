@@ -10,6 +10,7 @@ exports[`FavoriteList > should render correctly when having 1 favorite 1`] = `
       />
       <div>
         <a
+          data-discover="true"
           href="/drink/11118"
         >
           <h3>
@@ -48,6 +49,7 @@ exports[`FavoriteList > should render correctly when having 2 favorites 1`] = `
       />
       <div>
         <a
+          data-discover="true"
           href="/drink/11118"
         >
           <h3>
@@ -79,6 +81,7 @@ exports[`FavoriteList > should render correctly when having 2 favorites 1`] = `
       />
       <div>
         <a
+          data-discover="true"
           href="/drink/22222"
         >
           <h3>

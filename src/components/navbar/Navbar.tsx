@@ -1,7 +1,7 @@
 import './Navbar.css';
 
 import { FaCocktail } from 'react-icons/fa';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router';
 
 import GithubIcon from '../../assets/github.svg';
 
