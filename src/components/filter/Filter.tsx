@@ -1,11 +1,11 @@
 import './Filter.css';
 
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
 import { useState, type FC } from 'react';
 
 import type { CategoryType } from '../../types';
 import { setSessionFilter } from '../../utils/persistency';
+import { fetchCategories } from '../../utils/queries';
 import { Spinner } from '../loading/Loading';
 
 interface FilterProps {
@@ -17,10 +17,7 @@ export const Filter: FC<FilterProps> = ({ searchCategory, setSearchCategory }) =
   const [filter, setFilter] = useState(searchCategory || '');
   const { data, isPending, isSuccess } = useQuery<CategoryType[]>({
     queryKey: ['categories'],
-    queryFn: () =>
-      axios
-        .get('https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list')
-        .then((res) => res.data.drinks.map((drink: { strCategory: string }) => drink.strCategory)),
+    queryFn: fetchCategories,
   });
 
   if (isPending) return <Spinner />;

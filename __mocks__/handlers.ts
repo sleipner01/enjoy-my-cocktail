@@ -30,6 +30,18 @@ export const handlers = [
     return HttpResponse.json({ drinks: [defaultDrinkResponse] });
   }),
 
+  http.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php', () =>
+    HttpResponse.json({
+      drinks: [
+        {
+          idDrink: '11118',
+          strDrink: 'Super Drink',
+          strDrinkThumb: 'https://localhost:3000/drink/11118.jpg',
+        },
+      ],
+    }),
+  ),
+
   http.get('https://www.thecocktaildb.com/api/json/v1/1/random.php', () =>
     HttpResponse.json({
       drinks: [

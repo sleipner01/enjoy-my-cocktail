@@ -1,5 +1,4 @@
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
 import { useState, type FC } from 'react';
 import { useLocation } from 'react-router';
 
@@ -8,6 +7,7 @@ import { Filter } from '../components/filter/Filter';
 import { Spinner } from '../components/loading/Loading';
 import type { CategoryType, SimpleDrinkType } from '../types';
 import { getSessionFilter, setSessionFilter } from '../utils/persistency';
+import { fetchDrinksByCategory } from '../utils/queries';
 
 export const Search: FC = () => {
   const { state } = useLocation();
@@ -21,23 +21,7 @@ export const Search: FC = () => {
 
   const { data, isPending } = useQuery<SimpleDrinkType[]>({
     queryKey: [searchCategory],
-    queryFn: async () => {
-      return axios
-        .get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${searchCategory || 'Beer'}`)
-        .then((res) => {
-          const drinkData = res.data.drinks;
-          const drinks: SimpleDrinkType[] = [];
-          for (let i = 0; i < drinkData.length; i++) {
-            const drink: SimpleDrinkType = {
-              strDrink: drinkData[i].strDrink,
-              strDrinkThumb: drinkData[i].strDrinkThumb,
-              idDrink: drinkData[i].idDrink,
-            };
-            drinks.push(drink);
-          }
-          return drinks;
-        });
-    },
+    queryFn: () => fetchDrinksByCategory(searchCategory),
   });
 
   return (
