@@ -25,108 +25,104 @@ The data used in the application is retrieved from [The Cocktail DB](https://www
 
 The project uses the following technologies:
 
-- [Vite](https://vitejs.dev/)
-- [Vitest](https://vitest.dev/)
-- [Typescript](https://www.typescriptlang.org/)
-- [Tanstack Query](https://tanstack.com/query/latest)
-- [Eslint](https://eslint.org/)
-- [Stylelint](https://stylelint.io/)
-- [Prettier](https://prettier.io/)
+- [Bun](https://bun.sh/) for package management and running scripts
+- [React 19](https://react.dev/) with [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vite.dev/) for development and bundling
+- [React Router](https://reactrouter.com/) for routing
+- [TanStack Query](https://tanstack.com/query/latest) for data fetching and caching
+- [Vitest](https://vitest.dev/), [Testing Library](https://testing-library.com/) and [MSW](https://mswjs.io/) for testing
+- [ESLint](https://eslint.org/), [Stylelint](https://stylelint.io/) and [Prettier](https://prettier.io/) for code quality
 
-## Environment
+## Requirements
 
-The project uses [Bun](https://bun.sh/) as package manager and script runner. Install it with:
+The only requirement is [Bun](https://bun.sh/) (v1.4 or newer). Install it with:
 
 ```bash
 curl -fsSL https://bun.sh/install | bash
 ```
 
+Node.js and npm are not needed.
+
 ## Start development
 
-To start the project locally, run:
+Install dependencies:
 
 ```bash
 bun install
 ```
 
-After successful install, run:
+Start the development server:
 
 ```bash
 bun run dev
 ```
 
-The project will be executed locally and be hosted through a local port. Look to the terminal to find the correct URL.
-
-<i>More information about the scripts can be found below.</i>
+Vite prints the local URL in the terminal (usually [http://localhost:5173](http://localhost:5173)). Code changes are reloaded in the browser automatically.
 
 ## Available Scripts
 
-This section provides an overview of the available scripts for this project. These scripts help you manage development, testing, building, and other maintenance tasks for the project.
+### Development
 
-### Setup
-
-| <div style="width:150px">Command</div> | Description                                                                                       |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `bun install`                          | Installs all dependencies to run the project locally.                                             |
-| `bun run dev`                          | Starts Vite locally in development mode. Any code changes will trigger automatic browser updates. |
-| `bun start`                            | This script also starts Vite development mode and behaves identically to `bun run dev`.           |
+| Command       | Description                                            |
+| ------------- | ------------------------------------------------------ |
+| `bun install` | Installs all dependencies.                             |
+| `bun run dev` | Starts the Vite development server with hot reloading. |
+| `bun start`   | Alias for `bun run dev`.                               |
 
 ### Testing
 
-| <div style="width:150px">Command</div> | Description                                                                                                 |
-| -------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `bun run test`                         | This script runs tests using Vitest. It will execute all tests in the project.                              |
-| `bun run coverage`                     | Runs the unit-tests and generates a code coverage report. It will be located [here](./coverage/index.html). |
+| Command            | Description                                                                                  |
+| ------------------ | -------------------------------------------------------------------------------------------- |
+| `bun run test`     | Runs the tests with Vitest in watch mode.                                                    |
+| `bun run test run` | Runs the tests once and exits.                                                               |
+| `bun run coverage` | Runs the tests once and generates a coverage report in [`coverage/`](./coverage/index.html). |
+
+> Use `bun run test`, not `bun test`. `bun test` starts Bun's built-in test runner, which does not use the Vitest setup this project relies on.
 
 ### Code Quality
 
-| <div style="width:150px">Command</div> | Description                                                                                                                |
-| -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `bun run lint`                         | Runs ESLint to check for style errors and code issues. It will also report any unused ESLint-disable directives.           |
-| `bun run lint:fix`                     | Runs ESLint with the --fix flag to automatically fix eligable formatting issues and style errors in project files.         |
-| `bun run lint:css`                     | Runs Stylelint to check CSS files in the project for style errors and code issues.                                         |
-| `bun run format`                       | Runs Prettier to format spesified files in the project according to the configuration defined in the .prettierrc.cjs file. |
+| Command                | Description                                                     |
+| ---------------------- | --------------------------------------------------------------- |
+| `bun run lint`         | Runs ESLint. Fails on any error or warning.                     |
+| `bun run lint:fix`     | Runs ESLint and fixes what it can automatically.                |
+| `bun run lint:css`     | Runs Stylelint on the CSS files.                                |
+| `bun run lint:css:fix` | Runs Stylelint and fixes what it can automatically.             |
+| `bun run format`       | Formats the source files with Prettier using `.prettierrc.cjs`. |
 
 ### Production
 
-| <div style="width:150px">Command</div> | Description                                                                                 |
-| -------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `bun run build`                        | Builds the project with Vite. More information below.                                       |
-| `bun run preview`                      | Runs the built project locally. `bun run build` must have been run for this script to work. |
+| Command            | Description                                                          |
+| ------------------ | -------------------------------------------------------------------- |
+| `bun run build`    | Lints, type checks and builds the project. See below.                |
+| `bun run build:ci` | Builds the project with Vite only, skipping linting and type checks. |
+| `bun run preview`  | Serves the production build locally. Run `bun run build` first.      |
 
 ## Prepare for production
 
-Before production, the project needs to be compiled and built. This can be done by running the following script:
+Build the project with:
 
 ```bash
 bun run build
 ```
 
-It builds the project for production using Vite. It will perform the following steps:
+This runs the following steps and stops at the first failure:
 
-- Run linting for TypeScript files.
-- Run linting for SCSS files.
-- Run TypeScript compilation.
-- Run Vite bundling.
+1. ESLint on the TypeScript files.
+2. Stylelint on the CSS files.
+3. Type checking with `tsc`.
+4. Bundling with Vite into `dist/`.
+
+Then preview the production build locally with:
 
 ```bash
 bun run preview
 ```
 
-This script starts Vite in preview mode, allowing you to preview the production build locally before deployment.
+The live site is deployed on [Vercel](https://vercel.com/), configured in [`vercel.json`](./vercel.json).
 
-## Pipeline (CI/CD)
+### A note on TypeScript versions
 
-The project is set up with Gitlab Pipeline. It is configured to do the following:
-
-- Install all dependencies for the project.
-- Run all tests and retrieve coverage report.
-- Run linting to assert the code follows formatting rules.
-- Build the project.
-
-The pipeline automatically runs on every push to the repo. The Pipeline must pass in order to merge a branch with `main`.
-
-<i>If you want to </i>skip the pipeline for a push, add `-o ci.skip` to the git command.
+`tsc` runs TypeScript 7 (installed as `@typescript/native`). The `typescript` package is aliased to TypeScript 6 because typescript-eslint does not support TypeScript 7 yet. Once it does, the alias can be removed.
 
 ## Filestructure
 
