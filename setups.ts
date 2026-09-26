@@ -1,6 +1,7 @@
 import { afterAll, afterEach, beforeAll } from 'vitest';
 
 import { server } from './__mocks__/server';
+
 // Establish API mocking before all tests.
 beforeAll(() => server.listen());
 
