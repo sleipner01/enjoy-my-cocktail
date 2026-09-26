@@ -31,7 +31,7 @@ The project uses the following technologies:
 - [React Router](https://reactrouter.com/) for routing
 - [TanStack Query](https://tanstack.com/query/latest) for data fetching and caching
 - [Vitest](https://vitest.dev/), [Testing Library](https://testing-library.com/) and [MSW](https://mswjs.io/) for testing
-- [ESLint](https://eslint.org/), [Stylelint](https://stylelint.io/) and [Prettier](https://prettier.io/) for code quality
+- [Oxlint](https://oxc.rs/docs/guide/usage/linter), [Stylelint](https://stylelint.io/) and [Prettier](https://prettier.io/) for code quality
 
 ## Requirements
 
@@ -81,21 +81,21 @@ Vite prints the local URL in the terminal (usually [http://localhost:5173](http:
 
 ### Code Quality
 
-| Command                | Description                                                     |
-| ---------------------- | --------------------------------------------------------------- |
-| `bun run lint`         | Runs ESLint. Fails on any error or warning.                     |
-| `bun run lint:fix`     | Runs ESLint and fixes what it can automatically.                |
-| `bun run lint:css`     | Runs Stylelint on the CSS files.                                |
-| `bun run lint:css:fix` | Runs Stylelint and fixes what it can automatically.             |
-| `bun run format`       | Formats the source files with Prettier using `.prettierrc.cjs`. |
+| Command                | Description                                                   |
+| ---------------------- | ------------------------------------------------------------- |
+| `bun run lint`         | Runs Oxlint. Fails on any error or warning.                   |
+| `bun run lint:fix`     | Runs Oxlint and fixes what it can automatically.              |
+| `bun run lint:css`     | Runs Stylelint on the CSS files.                              |
+| `bun run lint:css:fix` | Runs Stylelint and fixes what it can automatically.           |
+| `bun run format`       | Formats the whole project with Prettier and sorts imports.    |
+| `bun run format:check` | Checks that the whole project is formatted, without changing. |
 
 ### Production
 
-| Command            | Description                                                          |
-| ------------------ | -------------------------------------------------------------------- |
-| `bun run build`    | Lints, type checks and builds the project. See below.                |
-| `bun run build:ci` | Builds the project with Vite only, skipping linting and type checks. |
-| `bun run preview`  | Serves the production build locally. Run `bun run build` first.      |
+| Command           | Description                                                     |
+| ----------------- | --------------------------------------------------------------- |
+| `bun run build`   | Lints, type checks and builds the project. See below.           |
+| `bun run preview` | Serves the production build locally. Run `bun run build` first. |
 
 ## Prepare for production
 
@@ -107,9 +107,9 @@ bun run build
 
 This runs the following steps and stops at the first failure:
 
-1. ESLint on the TypeScript files.
+1. Oxlint on the TypeScript files.
 2. Stylelint on the CSS files.
-3. Type checking with `tsc`.
+3. Type checking with `tsc -b` (TypeScript 7).
 4. Bundling with Vite into `dist/`.
 
 Then preview the production build locally with:
@@ -120,9 +120,9 @@ bun run preview
 
 The live site is deployed on [Vercel](https://vercel.com/), configured in [`vercel.json`](./vercel.json).
 
-### A note on TypeScript versions
+## Editor setup
 
-`tsc` runs TypeScript 7 (installed as `@typescript/native`). The `typescript` package is aliased to TypeScript 6 because typescript-eslint does not support TypeScript 7 yet. Once it does, the alias can be removed.
+The repository includes VS Code settings that format with Prettier on save and apply Oxlint fixes. Install the recommended extensions when VS Code prompts for them.
 
 ## Filestructure
 
