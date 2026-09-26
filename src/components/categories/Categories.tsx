@@ -2,9 +2,9 @@ import './Categories.css';
 
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { FC } from 'react';
+import type { FC } from 'react';
 
-import { CategoryType } from '../../types';
+import type { CategoryType } from '../../types';
 import { Category } from '../category/Category';
 import { Spinner } from '../loading/Loading';
 

@@ -1,4 +1,4 @@
-import { SimpleDrinkType } from '../../../types';
+import type { SimpleDrinkType } from '../../../types';
 import { renderWithRouterAndQueryClient } from '../../../utils/test-utils';
 import { DrinkList } from '../DrinkList';
 

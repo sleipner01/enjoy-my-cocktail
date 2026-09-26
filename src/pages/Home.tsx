@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 
 import { Categories } from '../components/categories/Categories';
 import { DrinkOfTheDay } from '../components/drinkOfTheDay/DrinkOfTheDay';

@@ -1,4 +1,4 @@
-import { DrinkOfTheDay } from '../../types';
+import type { DrinkOfTheDay } from '../../types';
 import { getDrinkOfTheDay, getFavorites, isFavorite, setDrinkOfTheDay, toggleFavorite } from '../persistency';
 
 const testDrink: DrinkOfTheDay = {

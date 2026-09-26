@@ -1,6 +1,6 @@
 import axios, { isCancel } from 'axios';
 
-import { Drink, DrinkOfTheDay, Ingredient } from '../types';
+import type { Drink, DrinkOfTheDay, Ingredient } from '../types';
 import { setDrinkOfTheDay } from './persistency';
 
 export const fetchDrinkById = async (id?: string) => {

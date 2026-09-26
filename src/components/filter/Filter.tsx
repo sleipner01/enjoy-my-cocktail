@@ -2,9 +2,9 @@ import './Filter.css';
 
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { FC, useState } from 'react';
+import { useState, type FC } from 'react';
 
-import { CategoryType } from '../../types';
+import type { CategoryType } from '../../types';
 import { setSessionFilter } from '../../utils/persistency';
 import { Spinner } from '../loading/Loading';
 

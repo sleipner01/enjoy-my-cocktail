@@ -1,9 +1,9 @@
 import './Category.css';
 
-import { FC } from 'react';
+import type { FC } from 'react';
 import { Link } from 'react-router';
 
-import { CategoryType } from '../../types';
+import type { CategoryType } from '../../types';
 
 interface CategoryProps {
   category: CategoryType;

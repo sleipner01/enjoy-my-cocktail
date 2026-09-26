@@ -1,4 +1,4 @@
-import { CategoryType, DrinkOfTheDay } from '../types';
+import type { CategoryType, DrinkOfTheDay } from '../types';
 
 const addFavorite = (id: string) => {
   const favorites = getFavorites();

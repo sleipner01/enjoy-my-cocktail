@@ -1,4 +1,4 @@
-import { Drink } from '../src/types';
+import type { Drink } from '../src/types';
 
 export const defaultDrinkResponse = {
   idDrink: '11118',

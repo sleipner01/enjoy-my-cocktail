@@ -1,6 +1,6 @@
 import { act, screen } from '@testing-library/react';
 
-import { CategoryType } from '../../../types';
+import type { CategoryType } from '../../../types';
 import { renderWithRouterAndQueryClient } from '../../../utils/test-utils';
 import { Category } from '../Category';
 
