@@ -30,7 +30,7 @@ export const Filter: FC<FilterProps> = ({ searchCategory, setSearchCategory }) =
       {data && isSuccess && (
         <select
           className='search-category'
-          placeholder='Filter by category'
+          aria-label='Filter by category'
           value={filter}
           onChange={(e) => {
             setSearchCategory(e.target.value as CategoryType);

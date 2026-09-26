@@ -6,8 +6,8 @@ exports[`Filter > Should match snapshot 1`] = `
     class="category-div"
   >
     <select
+      aria-label="Filter by category"
       class="search-category"
-      placeholder="Filter by category"
     >
       <option
         value="Beer"
