@@ -15,9 +15,12 @@ export const DrinkCard: FC = () => {
 
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
-  const { data, isLoading, isSuccess } = useQuery<Drink | null>(['drink', id], () => fetchDrinkById(id));
+  const { data, isPending, isSuccess } = useQuery<Drink | null>({
+    queryKey: ['drink', id],
+    queryFn: () => fetchDrinkById(id),
+  });
 
-  if (isLoading) return <Spinner />;
+  if (isPending) return <Spinner />;
 
   if (!isSuccess) return <div className='drink-container'>Something went wrong</div>;
 

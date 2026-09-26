@@ -16,9 +16,9 @@ export const DrinkOfTheDay: FC = () => {
   // Use the stored drink if available or an empty string if not
   const [drink, setDrink] = useState<DrinkOfTheDayType | null>(getDrinkOfTheDay(currentDate) || null);
 
-  const { data, isLoading, isSuccess } = useQuery<DrinkOfTheDayType | null>(
-    ['drinkOfTheDay'],
-    async () => {
+  const { data, isPending, isSuccess } = useQuery<DrinkOfTheDayType | null>({
+    queryKey: ['drinkOfTheDay'],
+    queryFn: async () => {
       // If there's a stored ID, no need to fetch again
       if (drink) {
         return null;
@@ -33,14 +33,12 @@ export const DrinkOfTheDay: FC = () => {
         return response;
       });
     },
-    {
-      // Only refetch if the ID is empty (not stored in local storage)
-      enabled: !drink,
-    },
-  );
+    // Only refetch if the ID is empty (not stored in local storage)
+    enabled: !drink,
+  });
 
   if (!drink) {
-    if (isLoading) {
+    if (isPending) {
       return (
         <div className='drink-of-the-day-card'>
           <Spinner />
