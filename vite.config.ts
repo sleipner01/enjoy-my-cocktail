@@ -10,6 +10,7 @@ export default defineConfig({
     setupFiles: './setups.ts',
     globals: true,
     environment: 'happy-dom',
+    pool: 'threads',
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html'],
