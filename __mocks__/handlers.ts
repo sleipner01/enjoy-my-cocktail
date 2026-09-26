@@ -1,6 +1,7 @@
 import { http, HttpResponse } from 'msw';
 
 import { alternativeDrink, defaultDrinkResponse } from './mockObjects';
+
 export const handlers = [
   http.get('https://www.thecocktaildb.com/api/json/v1/1/list.php', () =>
     HttpResponse.json({
